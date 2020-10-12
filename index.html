@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paralax Mouse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section>
+        <img class="layer" src="./shapes/1.png" data-speed="-5" alt="" srcset="">
+        <img class="layer" src="./shapes/2.png" data-speed="-3" alt="" srcset="">
+        <img  class="layer" src="./shapes/3.png" data-speed="5" alt="" srcset="">
+        <img class="layer" src="./shapes/4.png" data-speed="4" alt="" srcset="">
+        <img class="layer" src="./shapes/5.png" data-speed="9" alt="" srcset="">
+        <img class="layer" src="./shapes/6.png" data-speed="2" alt="" srcset="">
+        <img class="layer" src="./shapes/7.png" data-speed="-2" alt="" srcset="">
+        <img class="layer" src="./shapes/8.png" data-speed="-3" alt="" srcset="">
+        <img class="layer" src="./shapes/9.png" data-speed="-7" alt="" srcset="">
+        <img class="layer" src="./shapes/10.png" data-speed="2" alt="" srcset="">
+        <img class="layer" src="./shapes/11.png" data-speed="5" alt="" srcset="">
+        <img class="layer" src="./shapes/12.png" data-speed="-5" alt="" srcset="">
+
+        <h2 class="">Parallax</h2>
+
+    </section>
+<script>
+
+document.addEventListener("mousemove" , parallax);
+            function parallax(e){
+                this.querySelectorAll('.layer').forEach(layer => {
+                    const speed = layer.getAttribute('data-speed')
+
+                    const x = (window.innerWidth - e.pageX*speed)/100
+                    const y = (window.innerHeight - e.pageY*speed)/100
+
+                    layer.style.transform = `translateX(${x}px) translateY(${y}px)`
+                })
+            }
+</script>
+</body>
+
+</html>
